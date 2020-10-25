@@ -1,0 +1,80 @@
+@import '../../assets/fonts/fonts.scss';
+
+$font-padrao: 'Open Sans', sans-serif;
+.containerTop{
+  text-align: center;
+  display:block;
+  flex-direction:row;
+  .textLogo {
+    color: #12b0c9;
+    font-size: 48px;
+    font-family: Fancy Horror;
+    text-shadow: 0.1em 0.1em #cae05e;
+    padding-bottom:30px;
+
+  }
+  .buttorBackHome{
+    margin-left: 30px;
+    height: 30px;
+    width: 150px;
+    background-color: #48c916;
+    color: white;
+    text-transform: none;
+    font-family: $font-padrao;
+    font-size: 14px;
+    margin-bottom: 20px;
+    &:hover{
+      background-color: #48c916;
+      opacity: 0.5;
+    }
+  }
+}
+.informationContainer{
+  border: 5px dashed #c3dc5a;
+  padding: 18px !important;
+  display: flex;
+  border-radius: 25px !important;
+  width: 800px;
+  align-items:center;
+  .containerImage{
+    border-radius: 180px;
+    padding: 50px
+  }
+  .textoPrincipal{
+    color: #12b0c9;
+    font-size: 16px;
+    font-family: $font-padrao;
+    font-weight: 700;
+    text-shadow: 0.1em 0.1em #cae05e;
+  }
+  .textoSecundario{
+    color: #12b0c9;
+    font-size: 14px;
+    font-family: $font-padrao;
+    text-shadow: 0.1em 0.1em #cae05e;
+  }
+  .buttonContainerInfo{
+    padding-top: 380px;
+    display: block ;
+    flex: none;
+    .buttorHistory{
+      height: 40px;
+      width: 150px;
+      color: white;
+      background-color: #12b0c9;
+      text-transform: none;
+      font-family: $font-padrao;
+      font-size: 14px;
+    }
+    .buttorNewTravel{
+      margin-left: 30px;
+      height: 40px;
+      width: 150px;
+      background-color: #48c916;
+      color: white;
+      text-transform: none;
+      font-family: $font-padrao;
+      font-size: 14px;
+    }
+  }
+}

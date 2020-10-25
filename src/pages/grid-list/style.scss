@@ -1,0 +1,67 @@
+@import '../../assets/fonts/fonts.scss';
+@font-face {
+  font-family: "Fancy Horror";
+  src: local('Lato'), url('../../assets/fonts/get_schwifty.ttf') format('opentype');
+}
+
+$cor-padrao: #4d024d;
+$font-padrao: 'Open Sans', sans-serif;
+.containerLogo {
+  text-align: center;
+  display:block;
+  flex-direction:row;
+  .textLogo {
+    color: #12b0c9;
+    font-size: 58px;
+    font-family: Fancy Horror;
+    text-shadow: 0.1em 0.1em #cae05e;
+    padding-bottom:30px;
+
+  }
+  .imageLogo {
+    width: 460px;
+    height: 320px;
+  }
+}
+.containerPagination{
+  padding: 20px 0;
+  > nav{
+    direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    display: flex !important;
+  }
+  .MuiPaginationItem-page.Mui-selected {
+    color: white !important;
+    background-color: #c3dc5a!important;
+  } 
+  .MuiSvgIcon-root{
+    color: #c3dc5a!important;
+  }
+}
+.cardContainer{
+  border: 5px dashed #c3dc5a;
+  margin: 18px !important;
+  display: flex;
+  border-radius: 25px !important;
+  cursor: pointer;
+  .containerImage{
+    border-radius: 180px;
+    padding: 5px
+  }
+  .textoPrincipal{
+    color: #12b0c9;
+    padding-left: 10px;
+    font-size: 16px;
+    font-family: $font-padrao;
+    font-weight: 700;
+    text-shadow: 0.1em 0.1em #cae05e;
+  }
+  .textoSecundario{
+    color: #12b0c9;
+    padding-left: 15px;
+    font-size: 14px;
+    font-family: $font-padrao;
+    text-shadow: 0.1em 0.1em #cae05e;
+  }
+}
