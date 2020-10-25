@@ -36,23 +36,19 @@ class Api {
       response
     )
   }
-  convetToQueryString = (data: any) => {
-    let queryString = ''
-    for (const key in data) {
-      const value = data[key]
-      if (value) {
-        if (typeof value === 'object') {
-          if (value['id'] && value['id'].length > 0) {
-            queryString +=
-              (queryString.length > 0 ? '&' : '') + key + 'Id' + '=' + value.id
-          }
-        } else {
-          queryString += (queryString.length > 0 ? '&' : '') + key + '=' + value
-        }
-      }
-    }
 
-    return queryString
+  getLocation = async (
+    page: number,
+    response: ResponseRequest<ResponseData>
+  ) => {
+    await this.request(
+      {
+        url: this.config_env.urlApi,
+        endPoint: '/location/?page=' + page,
+        method: 'GET',
+      },
+      response
+    )
   }
 
   request = async <TResult>(

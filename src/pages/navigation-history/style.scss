@@ -1,0 +1,32 @@
+@import '../../assets/fonts/fonts.scss';
+
+$cor-padrao: #12b0c9;
+$font-padrao: 'Open Sans', sans-serif;
+
+.containerPagina {
+  text-align: center;
+  padding: 5px 50px;
+  .containerListagem {
+    .MuiTableCell-root {
+      font-weight: 400;
+      font-family: $font-padrao;
+      height: 20px !important;
+    }
+    .tableCellHeadFirst {
+      color: #fff;
+      background-color: $cor-padrao;
+      font-weight: 700 !important;
+    }
+    .tableCellHead {
+      color: #fff;
+      background-color: $cor-padrao;
+      font-weight: 700 !important;
+      text-align: center;
+    }
+    .imagemTableCell {
+      align-self: center;
+      width: 128px;
+      height: 128px;
+    }
+  }
+}

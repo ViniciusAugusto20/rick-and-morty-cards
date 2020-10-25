@@ -12,10 +12,9 @@ import { useHistory } from 'react-router-dom'
 import { RootState } from '../../store/ducks'
 import { Box, Button, Grid, Typography } from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
-import CustomCard from '../../components/customCard'
 import logoImage from '../../assets/images/logoImage.jpg'
 import defaultImg from '../../assets/images/defaultImg.jpeg'
-import Character from '../../models/character'
+import ICharacter from '../../models/character'
 import './style.scss'
 
 const PageGridInitial = () => {
@@ -33,7 +32,7 @@ const PageGridInitial = () => {
   const handleChangePage = (event, value) => {
     setPage(value)
   }
-  const handleChangeToPageInformation = (characther: Character) => {
+  const handleChangeToPageInformation = (characther: ICharacter) => {
     dispatch(setRickEdit(characther))
     history.push('/information')
   }
@@ -57,7 +56,6 @@ const PageGridInitial = () => {
 
   useEffect(() => {
     concatenatedMortys.push(...allMorty)
-    console.log(concatenatedMortys)
   }, [allMorty])
 
   return (
@@ -74,7 +72,7 @@ const PageGridInitial = () => {
         />
       </Box>
       <Grid container spacing={0} justify="center">
-        {allRick.map((characther: Character) => (
+        {allRick.map((characther: ICharacter) => (
           <Box
             className="cardContainer"
             key={characther.id}

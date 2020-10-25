@@ -1,6 +1,6 @@
-import Dimension from './dimension'
+import ILocation from './location'
 
-export default interface Character {
+export default interface ICharacter {
   id: string
   name: string
   status: string
@@ -9,12 +9,6 @@ export default interface Character {
   gender: string
   url: string
   image: string
-  origin: {
-    name: string
-    url: string
-  }
-  location: {
-    name: string
-    url: string
-  }
+  origin: ILocation
+  location: ILocation
 }

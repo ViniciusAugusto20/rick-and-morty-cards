@@ -5,7 +5,8 @@ import { RootState } from '../store/ducks'
 import { Action } from 'redux'
 import { Types } from '../store/ducks/main-duck'
 
-import Character from '../models/character'
+import ICharacter from '../models/character'
+import INavigation from '../models/navigation'
 import 'moment/locale/pt-br'
 
 export const getInfoMorty = (
@@ -89,10 +90,57 @@ export const getAllRick = (
 }
 
 export const setRickEdit = (
-  dados: Character
+  dados: ICharacter
 ): ThunkAction<void, RootState, unknown, Action> => async dispatch => {
   dispatch({
     type: Types.SET_RICK_EDIT,
     currentRick: dados,
+  })
+}
+
+export const getInfoLocation = (
+  page?: number
+): ThunkAction<void, RootState, unknown, Action> => async dispatch => {
+  const api = new Api()
+  await api.getLocation(page, {
+    onSuccess: async (resposta: ResponseData) => {
+      if (resposta) {
+        dispatch({
+          type: Types.GET_INFO_LOCATION,
+          infoLocation: resposta.info,
+        })
+      }
+    },
+    onError: async (error: Response) => {
+      console.log(error)
+    },
+  })
+}
+
+export const getAllLocation = (
+  page?: number
+): ThunkAction<void, RootState, unknown, Action> => async dispatch => {
+  const api = new Api()
+  await api.getLocation(page, {
+    onSuccess: async (resposta: ResponseData) => {
+      if (resposta) {
+        dispatch({
+          type: Types.SET_ALL_LOCATION,
+          allLocation: resposta.results,
+        })
+      }
+    },
+    onError: async (error: Response) => {
+      console.log(error)
+    },
+  })
+}
+
+export const setTravelHistory = (
+  dados: INavigation
+): ThunkAction<void, RootState, unknown, Action> => async dispatch => {
+  dispatch({
+    type: Types.SET_TRAVEL_HISTORY,
+    travelHistory: dados,
   })
 }

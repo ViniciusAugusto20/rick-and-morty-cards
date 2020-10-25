@@ -7,6 +7,9 @@ export const { Types, Creators } = createActions({
   getInfoMorty: [],
   getInfoRick: [],
   setRickEdit: [],
+  getInfoLocation: [],
+  setAllLocation: [],
+  setTravelHistory: [],
 })
 
 const INITIAL_STATE = {
@@ -15,6 +18,9 @@ const INITIAL_STATE = {
   infoMorty: [],
   infoRick: [],
   currentRick: [],
+  infoLocation: [],
+  allLocation: [],
+  travelHistory: [],
 }
 const setAllRick = (state = INITIAL_STATE, action: AnyAction) => {
   return {
@@ -47,6 +53,28 @@ const setRickEdit = (state = INITIAL_STATE, action: AnyAction) => {
     currentRick: action.currentRick,
   }
 }
+
+const getInfoLocation = (state = INITIAL_STATE, action: AnyAction) => {
+  return {
+    ...state,
+    infoLocation: action.infoLocation,
+  }
+}
+
+const setAllLocation = (state = INITIAL_STATE, action: AnyAction) => {
+  return {
+    ...state,
+    allLocation: action.allLocation,
+  }
+}
+const setTravelHistory = (state = INITIAL_STATE, action: AnyAction) => {
+  const currentHistory = [...state.travelHistory]
+  currentHistory.push(action.travelHistory)
+  return {
+    ...state,
+    travelHistory: currentHistory,
+  }
+}
 /**
  * Handlers
  */
@@ -61,6 +89,12 @@ const HANDLERS = {
   [Types.GET_INFO_RICK]: getInfoRick,
   // @ts-ignore
   [Types.SET_RICK_EDIT]: setRickEdit,
+  // @ts-ignore
+  [Types.GET_INFO_LOCATION]: getInfoLocation,
+  // @ts-ignore
+  [Types.SET_ALL_LOCATION]: setAllLocation,
+  // @ts-ignore
+  [Types.SET_TRAVEL_HISTORY]: setTravelHistory,
 }
 
 /**

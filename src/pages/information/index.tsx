@@ -14,20 +14,31 @@ import { Box, Button, Grid, Typography } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-import Character from '../../models/character'
+import CustomModal from '../../components/custom-modal'
+
+import ICharacter from '../../models/character'
 import './style.scss'
 
 const PageInformation = () => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const currentRick: Character = useSelector(
+  const currentRick: ICharacter = useSelector(
     (state: RootState) => state?.main.currentRick
   )
+  const [openModalTravel, setOpenModalTravel] = useState(false)
+
+  const closeModalNavigation = () => {
+    setOpenModalTravel(false)
+  }
 
   return (
     <>
       <Box className={'containerTop'}>
+        <CustomModal
+          visible={openModalTravel}
+          onCancel={closeModalNavigation}
+        />
         <Typography className="textLogo">Rick and Morty Cards</Typography>
         <Button
           variant="contained"
@@ -81,10 +92,18 @@ const PageInformation = () => {
             xs
           >
             <Box className="buttonContainerInfo">
-              <Button variant="contained" className="buttorHistory">
+              <Button
+                variant="contained"
+                className="buttorHistory"
+                onClick={() => history.push('/navigation')}
+              >
                 History
               </Button>
-              <Button variant="contained" className="buttorNewTravel">
+              <Button
+                variant="contained"
+                className="buttorNewTravel"
+                onClick={() => setOpenModalTravel(true)}
+              >
                 New Travel
               </Button>
             </Box>
