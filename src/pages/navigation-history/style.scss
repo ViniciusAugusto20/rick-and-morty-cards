@@ -1,32 +1,53 @@
 @import '../../assets/fonts/fonts.scss';
 
-$cor-padrao: #12b0c9;
-$font-padrao: 'Open Sans', sans-serif;
+$primary-color: #12b0c9;
+$secondary-color:#cae05e;
+$font-default: 'Open Sans', sans-serif;
 
-.containerPagina {
+.containerPage {
   text-align: center;
-  padding: 5px 50px;
-  .containerListagem {
+  display:block;
+  flex-direction:row;
+  padding: 0px 40px;
+  .textLogo {
+    color: $primary-color;
+    font-size: 48px;
+    font-family: Fancy Horror;
+    text-shadow: 0.1em 0.1em $secondary-color;
+    padding-bottom:30px;
+
+  }
+  .buttonBackHome{
+    margin-left: 30px;
+    height: 35px;
+    width: 200px;
+    background-color: #48c916;
+    color: white;
+    text-transform: none;
+    font-family: $font-default;
+    font-size: 14px;
+    margin-bottom: 20px;
+    &:hover{
+      background-color: #48c916;
+      opacity: 0.5;
+    }
+  }
+  .containerList {
     .MuiTableCell-root {
       font-weight: 400;
-      font-family: $font-padrao;
+      font-family: $font-default;
       height: 20px !important;
     }
     .tableCellHeadFirst {
       color: #fff;
-      background-color: $cor-padrao;
+      background-color: $primary-color;
       font-weight: 700 !important;
     }
     .tableCellHead {
       color: #fff;
-      background-color: $cor-padrao;
+      background-color: $primary-color;
       font-weight: 700 !important;
       text-align: center;
-    }
-    .imagemTableCell {
-      align-self: center;
-      width: 128px;
-      height: 128px;
     }
   }
 }

@@ -10,6 +10,7 @@ export const { Types, Creators } = createActions({
   getInfoLocation: [],
   setAllLocation: [],
   setTravelHistory: [],
+  setLastPage: [],
 })
 
 const INITIAL_STATE = {
@@ -21,6 +22,7 @@ const INITIAL_STATE = {
   infoLocation: [],
   allLocation: [],
   travelHistory: [],
+  lastPageRander: 1,
 }
 const setAllRick = (state = INITIAL_STATE, action: AnyAction) => {
   return {
@@ -75,6 +77,13 @@ const setTravelHistory = (state = INITIAL_STATE, action: AnyAction) => {
     travelHistory: currentHistory,
   }
 }
+
+const setLastPage = (state = INITIAL_STATE, action: AnyAction) => {
+  return {
+    ...state,
+    lastPageRander: action.lastPageRander,
+  }
+}
 /**
  * Handlers
  */
@@ -95,6 +104,8 @@ const HANDLERS = {
   [Types.SET_ALL_LOCATION]: setAllLocation,
   // @ts-ignore
   [Types.SET_TRAVEL_HISTORY]: setTravelHistory,
+  // @ts-ignore
+  [Types.SET_LAST_PAGE]: setLastPage,
 }
 
 /**

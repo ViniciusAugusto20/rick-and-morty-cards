@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import Api, { ResponseData } from '../utils/api'
 import { ThunkAction } from 'redux-thunk'
 import { RootState } from '../store/ducks'
@@ -7,7 +6,9 @@ import { Types } from '../store/ducks/main-duck'
 
 import ICharacter from '../models/character'
 import INavigation from '../models/navigation'
-import 'moment/locale/pt-br'
+
+import errorFormat from '../utils/error-formatter'
+import { showToast } from '../components/toast'
 
 export const getInfoMorty = (
   name: string,
@@ -24,7 +25,11 @@ export const getInfoMorty = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      showToast({
+        type: 'error',
+        message: errorMessage + ' Information of Morty',
+      })
     },
   })
 }
@@ -44,7 +49,12 @@ export const getInfoRick = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      console.log(errorMessage)
+      showToast({
+        type: 'error',
+        message: errorMessage + ' Information of Rick',
+      })
     },
   })
 }
@@ -64,7 +74,11 @@ export const getAllMorty = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      showToast({
+        type: 'error',
+        message: errorMessage + ' list Morty',
+      })
     },
   })
 }
@@ -84,7 +98,8 @@ export const getAllRick = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      showToast({ type: 'error', message: errorMessage + ' list Rick' })
     },
   })
 }
@@ -112,7 +127,11 @@ export const getInfoLocation = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      showToast({
+        type: 'error',
+        message: errorMessage + ' Information of location',
+      })
     },
   })
 }
@@ -131,7 +150,8 @@ export const getAllLocation = (
       }
     },
     onError: async (error: Response) => {
-      console.log(error)
+      const errorMessage = await errorFormat(error)
+      showToast({ type: 'error', message: errorMessage + ' list Location' })
     },
   })
 }
@@ -142,5 +162,14 @@ export const setTravelHistory = (
   dispatch({
     type: Types.SET_TRAVEL_HISTORY,
     travelHistory: dados,
+  })
+}
+
+export const setLastPage = (
+  dados: Number
+): ThunkAction<void, RootState, unknown, Action> => async dispatch => {
+  dispatch({
+    type: Types.SET_LAST_PAGE,
+    lastPageRander: dados,
   })
 }

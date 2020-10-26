@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Fancy Horror";
+  src: local('Lato'), url('../../assets/fonts/get_schwifty.ttf') format('opentype');
+}
+
+.containerPortal{
+  text-align: center;
+  padding-top: 10px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000 !important;
+  .imagePortal{
+    height: 500px;
+    width: 550px;
+  }
+  .textPortal{
+    font-family: Fancy Horror;
+    font-size: 38px;
+    color: white;
+  }
+}

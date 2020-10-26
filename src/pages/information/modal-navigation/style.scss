@@ -1,0 +1,50 @@
+@import '../../../assets/fonts/fonts.scss';
+
+$primary-color: #12b0c9;
+$secondary-color:#cae05e;
+$font-default: 'Open Sans', sans-serif;
+
+.TextModal{
+  color: #12b0c9;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  font-family: $font-default !important;
+  text-align: center;
+}
+
+.containerModal{
+  > div{
+    padding: 20px;
+  }
+}
+
+.buttonContainerModal{
+  .buttorStartTravel{
+    margin: 10px;
+    height: 35px;
+    width: 120px;
+    color: white;
+    background-color: $primary-color;
+    text-transform: none;
+    font-family: $font-default !important;
+    font-size: 14px !important;
+    &:hover{
+      background-color: $primary-color;
+      opacity: 0.5;
+    }
+  }
+  .buttorCancel{
+    margin: 10px;
+    height: 35px;
+    width: 120px;
+    background-color: #48c916;
+    color: white;
+    text-transform: none;
+    font-family: $font-default !important;
+    font-size: 14px !important;
+    &:hover{
+      background-color: #48c916;
+      opacity: 0.5;
+    }
+  }
+ } 

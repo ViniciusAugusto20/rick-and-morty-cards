@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import {
-  getAllMorty,
-  getAllRick,
-  getInfoMorty,
-  getInfoRick,
-} from '../../actions/main-actions'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-// eslint-disable-next-line no-unused-vars
 import { RootState } from '../../store/ducks'
 import { Box, Button, Grid, Typography } from '@material-ui/core'
-
+import ICharacter from '../../models/character'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-import CustomModal from '../../components/custom-modal'
+import ModalNavigation from './modal-navigation'
 
-import ICharacter from '../../models/character'
 import './style.scss'
 
 const PageInformation = () => {
-  const dispatch = useDispatch()
   const history = useHistory()
 
   const currentRick: ICharacter = useSelector(
@@ -34,8 +25,8 @@ const PageInformation = () => {
 
   return (
     <>
-      <Box className={'containerTop'}>
-        <CustomModal
+      <Box className="containerTop">
+        <ModalNavigation
           visible={openModalTravel}
           onCancel={closeModalNavigation}
         />
@@ -45,7 +36,7 @@ const PageInformation = () => {
           className="buttorBackHome"
           onClick={() => history.push('/')}
         >
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon style={{ paddingRight: 10 }} icon={faArrowLeft} />
           Back
         </Button>
       </Box>
@@ -60,28 +51,43 @@ const PageInformation = () => {
             />
           </Grid>
           <Grid item xs style={{ paddingRight: 40 }}>
-            <Typography className="textoPrincipal">
-              Name: <p className="textoSecundario">{currentRick?.name}</p>
+            <Typography className="primaryText">
+              Name:
+              <Typography className="secondaryText">
+                {currentRick?.name}
+              </Typography>
             </Typography>
-            <Typography className="textoPrincipal">
+            <Typography className="primaryText">
               Dimension:
-              <p className="textoSecundario">{currentRick?.origin?.name}</p>
+              <Typography className="secondaryText">
+                {currentRick?.origin?.name}
+              </Typography>
             </Typography>
-            <Typography className="textoPrincipal">
-              Status: <p className="textoSecundario">{currentRick?.status}</p>
+            <Typography className="primaryText">
+              Status:
+              <Typography className="secondaryText">
+                {currentRick?.status}
+              </Typography>
             </Typography>
           </Grid>
           <Grid item xs>
-            <Typography className="textoPrincipal">
+            <Typography className="primaryText">
               Species:
-              <p className="textoSecundario">{currentRick?.species}</p>
+              <Typography className="secondaryText">
+                {currentRick?.species}
+              </Typography>
             </Typography>
-            <Typography className="textoPrincipal">
-              Gender: <p className="textoSecundario">{currentRick?.gender}</p>
+            <Typography className="primaryText">
+              Gender:
+              <Typography className="secondaryText">
+                {currentRick?.gender}
+              </Typography>
             </Typography>
-            <Typography className="textoPrincipal">
+            <Typography className="primaryText">
               Location:
-              <p className="textoSecundario">{currentRick?.location?.name}</p>
+              <Typography className="secondaryText">
+                {currentRick?.location?.name}
+              </Typography>
             </Typography>
           </Grid>
           <Grid
@@ -89,7 +95,6 @@ const PageInformation = () => {
             direction="row"
             justify="flex-end"
             alignItems="flex-end"
-            xs
           >
             <Box className="buttonContainerInfo">
               <Button

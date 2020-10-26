@@ -1,5 +1,5 @@
 import config from '../../config.json'
-import Character from '../../models/character'
+import ICharacter from '../../models/character'
 export interface RequestData {
   url: string
   endPoint: string
@@ -11,7 +11,7 @@ export interface RequestData {
 
 export interface ResponseData {
   results: Array<any>
-  info: Array<Character>
+  info: Array<ICharacter>
 }
 
 export interface ResponseRequest<TResult> {

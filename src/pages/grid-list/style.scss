@@ -3,18 +3,19 @@
   font-family: "Fancy Horror";
   src: local('Lato'), url('../../assets/fonts/get_schwifty.ttf') format('opentype');
 }
+$primary-color: #12b0c9;
+$secondary-color:#cae05e;
+$font-default: 'Open Sans', sans-serif;
 
-$cor-padrao: #4d024d;
-$font-padrao: 'Open Sans', sans-serif;
 .containerLogo {
   text-align: center;
   display:block;
   flex-direction:row;
   .textLogo {
-    color: #12b0c9;
+    color: $primary-color;
     font-size: 58px;
     font-family: Fancy Horror;
-    text-shadow: 0.1em 0.1em #cae05e;
+    text-shadow: 0.1em 0.1em $secondary-color;
     padding-bottom:30px;
 
   }
@@ -33,14 +34,14 @@ $font-padrao: 'Open Sans', sans-serif;
   }
   .MuiPaginationItem-page.Mui-selected {
     color: white !important;
-    background-color: #c3dc5a!important;
+    background-color: $secondary-color!important;
   } 
   .MuiSvgIcon-root{
-    color: #c3dc5a!important;
+    color: $secondary-color!important;
   }
 }
 .cardContainer{
-  border: 5px dashed #c3dc5a;
+  border: 5px dashed $secondary-color;
   margin: 18px !important;
   display: flex;
   border-radius: 25px !important;
@@ -49,19 +50,22 @@ $font-padrao: 'Open Sans', sans-serif;
     border-radius: 180px;
     padding: 5px
   }
-  .textoPrincipal{
-    color: #12b0c9;
+  .primaryText{
+    color: $primary-color !important;
     padding-left: 10px;
-    font-size: 16px;
-    font-family: $font-padrao;
+    font-size: 16px !important;
+    font-family: $font-default;
     font-weight: 700;
-    text-shadow: 0.1em 0.1em #cae05e;
+    text-shadow: 0.1em 0.1em $secondary-color;
   }
-  .textoSecundario{
-    color: #12b0c9;
+  .secondaryText{
+    color: black !important;
     padding-left: 15px;
-    font-size: 14px;
-    font-family: $font-padrao;
-    text-shadow: 0.1em 0.1em #cae05e;
+    font-size: 14px !important;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: $font-default;
+    text-shadow: 0.1em 0.1em $secondary-color;
+    padding-bottom: 10px;
   }
 }

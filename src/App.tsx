@@ -2,19 +2,19 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import store from './store'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
 import PageGridInitial from './pages/grid-list'
 import PageInformation from './pages/information'
 import PageNavigation from './pages/navigation-history'
+import PagePortal from './pages/portal'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
-import 'moment/locale/pt-br'
 import './App.scss'
-
+import Toast from './components/toast'
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+        <Toast />
         <MuiPickersUtilsProvider utils={MomentUtils} locale={'pt-br'}>
           <BrowserRouter>
             <Switch>
@@ -25,6 +25,7 @@ class App extends React.Component {
                 component={PageInformation}
               />
               <Route path="/navigation" component={PageNavigation} />
+              <Route path="/portal" component={PagePortal} />
             </Switch>
           </BrowserRouter>
         </MuiPickersUtilsProvider>
